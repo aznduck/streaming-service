@@ -1,0 +1,19 @@
+{
+    // This file is used to configure the three buttons along Codio's top menu.
+    
+    // Run button configuration
+    "commands": {
+        "Compile & Run": "g++ -o {{filename_no_ext}} {{filename}} && ./{{filename_no_ext}}",
+        "Compile": "g++ -o {{filename_no_ext}} {{filename}}",
+        "Run": "./{{filename_no_ext}}"
+    },
+    // Preview button configuration
+    "preview": {
+        "Project Index (static)": "https://{{domain}}/{{index}}",
+        "Current File (static)": "https://{{domain}}/{{filepath}}",
+        "Box URL": "http://{{domain3000}}/",
+        "Box URL SSL": "https://{{domain3000}}/"
+    },
+    // Debugger target button configuration
+    "debugger": []
+}
