@@ -3,13 +3,13 @@
 #include <fstream>
 using namespace std;
 
-// To do - Complete this function
+
 StreamService::StreamService()
 {
     cUser_ = NULL;
 }
 
-// To do - Complete this function
+
 StreamService::~StreamService()
 {
   for(User* user : users_)
@@ -22,7 +22,7 @@ StreamService::~StreamService()
   }
 }
 
-// Complete - Do not alter
+
 void StreamService::readAndParseData(std::istream& is, Parser& p)
 {
     p.parse(is, content_, users_);
@@ -30,7 +30,7 @@ void StreamService::readAndParseData(std::istream& is, Parser& p)
     cout << "Read " << users_.size() << " users." << endl;
 }
 
-// To do - Complete this function
+
 void StreamService::userLogin(const std::string& uname)
 {
   if(getUserIndexByName(uname) == -1)
@@ -44,21 +44,17 @@ void StreamService::userLogin(const std::string& uname)
     cUser_ = users_[getUserIndexByName(uname)]; //gets user based on name
 }
 
-// To do - Complete this function
+
 void StreamService::userLogout()
 {
   cUser_ = NULL;
 }
 
-// To do - Complete this function
+
 std::vector<CID_T> StreamService::searchContent(const std::string& partial) const
 {
     std::vector<CID_T> results;
     for(size_t i = 0; i < content_.size(); i++){
-        // TO DO - modify this to also push back when the string 'partial'
-        //  is contained in the name of the current content. Lookup the string
-        //  class documentation to find an appropriate function that can be used
-        //  to do this simply.
         if(partial == "*" || content_[i] -> name().find(partial) != std::string::npos){
             results.push_back(i);
         }        
@@ -66,7 +62,7 @@ std::vector<CID_T> StreamService::searchContent(const std::string& partial) cons
     return results;
 }
 
-// Complete - Do not alter
+
 std::vector<CID_T> StreamService::getUserHistory() const
 {
     throwIfNoCurrentUser();
@@ -167,7 +163,7 @@ CID_T StreamService::suggestBestSimilarContent(CID_T contentID) const
   return maxIndex;
 }
 
-// To do - Complete this function
+
 void StreamService::displayContentInfo(CID_T contentID) const
 {
     // Do not alter this
@@ -187,13 +183,12 @@ void StreamService::displayContentInfo(CID_T contentID) const
     }
 }
 
-// Complete - Do not alter
 bool StreamService::isValidContentID(CID_T contentID) const
 {
     return (contentID >= 0) && (contentID < (int) content_.size());
 }
 
-// Complete - Do not alter
+
 void StreamService::throwIfNoCurrentUser() const
 {
     if(cUser_ == NULL){
@@ -201,7 +196,7 @@ void StreamService::throwIfNoCurrentUser() const
     }
 }
 
-// Complete - Do not alter
+
 int StreamService::getUserIndexByName(const std::string& uname) const
 {
     for(size_t i = 0; i < users_.size(); i++){
